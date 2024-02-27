@@ -5,9 +5,7 @@
 <body>
 
 <div th:replace="~{fragments :: page-header}"></div>
-
 <div class="container body-content">
-
   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
@@ -24,13 +22,13 @@
     </thead>
     <tbody>
     <!-- ThymeLeaf loop (th:each) loops over each job and display its details in a table row -->
-    <tr th:each="job : ${jobs}" th:replace="fragments :: jobRow(job)"></tr>
-<!--      <td th:text="${job.id}"></td>-->
-<!--      <td th:text="${job.employer.name}"></td>-->
-<!--      <td th:text="${job.location.name}"></td>-->
-<!--      <td th:text="${job.positionType.name}"></td>-->
-<!--      <td th:text="${job.coreCompetency.name}"></td>-->
-<!--    </tr>-->
+    <tr th:each="job : ${jobs}"> <!-- th:replace="fragments :: jobRow(job)" -->
+      <td th:text="${job.id}"></td>
+      <td th:text="${job.employer.name}"></td>
+      <td th:text="${job.location.name}"></td>
+      <td th:text="${job.positionType.name}"></td>
+      <td th:text="${job.coreCompetency.name}"></td>
+    </tr>
     </tbody>
   </table>
 

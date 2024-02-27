@@ -111,7 +111,7 @@ public class TestTaskThree {
 
     /*
      * Checks that displaySearchResults sets the necessary model attributes
-     * */
+//     * */
 //    @Test
 //    public void testDisplaySearchResultsSetsModelAtts() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 //        Class searchControllerClass = Class.forName("org.launchcode.techjobsmvc.controllers.SearchController");

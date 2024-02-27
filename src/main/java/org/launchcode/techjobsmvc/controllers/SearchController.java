@@ -18,7 +18,6 @@ import java.util.HashMap;
 @Controller
 @RequestMapping("search")
 public class SearchController {
-
     // HashMap to store column choices for search options
     static HashMap<String, String> columnChoices = new HashMap<>();
     // initializes columnChoices HashMap with search options
@@ -35,7 +34,7 @@ public class SearchController {
     public String search(Model model) {
         //adds columnChoices to the model to populate the search form dropdown
         model.addAttribute("columns", columnChoices);
-        //retyrns the search view
+        //returns the search view
         return "search";
     }
 
@@ -55,11 +54,13 @@ public class SearchController {
             //otherwise, search by specified column and search term
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
         }
+
         //adds search results and column choices to the model
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
         //returns the search view with updated search results
         return "search";
     }
+
 }
 
