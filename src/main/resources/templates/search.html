@@ -41,27 +41,7 @@
 
   <!-- TODO #4 - Loop over the search results to display all job fields. -->
     <!-- table for displaying search results -->
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Employer</th>
-            <th>Location</th>
-            <th>Position Type</th>
-            <th>Core Competency</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Loop through each job and includes in the jobRow fragment -->
-        <tr th:each="job : ${jobs}">
-            <td th:text="${job.id}"></td>
-            <td th:text="${job.employer.name}"></td>
-            <td th:text="${job.location.name}"></td>
-            <td th:text="${job.positionType.name}"></td>
-            <td th:text="${job.coreCompetency.name}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <table th:replace="list-jobs :: job-tables"></table>
 </div>
 
 </body>

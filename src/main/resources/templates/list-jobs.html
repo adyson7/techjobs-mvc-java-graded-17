@@ -5,45 +5,44 @@
 <body>
 
 <div th:replace="~{fragments :: page-header}"></div>
+
 <div class="container body-content">
   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-
+  <h2 class="centered">View Jobs By Category</h2>
+</div>
   <!-- TODO #1 - Use a loop to display job results in a table. -->
   <!-- created table and headers for each field-->
-  <table class="table job-listing"> <!--adds 'job-listing' class to the table-->
-    <thead>
+  <!--adds 'job-listing' class to the table-->
+<!-- Loop over each job and display its details in a separate table -->
+<div>
+<table th:fragment="job-tables" class="job-listing" th:each="job : ${jobs}">
     <tr>
-      <th>ID</th>
-      <th>Employer</th>
-      <th>Location</th>
-      <th>Position Type</th>
-      <th>Core Competency</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- ThymeLeaf loop (th:each) loops over each job and display its details in a table row -->
-    <tr th:each="job : ${jobs}"> <!-- th:replace="fragments :: jobRow(job)" -->
-      <td th:text="${job.id}"></td>
-      <td th:text="${job.employer.name}"></td>
-      <td th:text="${job.location.name}"></td>
-      <td th:text="${job.positionType.name}"></td>
-      <td th:text="${job.coreCompetency.name}"></td>
-    </tr>
-    </tbody>
-  </table>
-
-</div>
-
-    <!--defines a new fragment for displaying a single job -->
-    <div th:fragment="jobRow(job)">
-      <tr>
+        <td>ID</td>
         <td th:text="${job.id}"></td>
-        <td th:text="${job.employer.name}"></td>
-        <td th:text="${job.location.name}"></td>
-        <td th:text="${job.positionType.name}"></td>
-        <td th:text="${job.coreCompetency.name}"></td>
-      </tr>
-    </div>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${job.name}"></td>
+    </tr>
+    <tr>
+        <td>Employer</td>
+        <td th:text="${job.employer}"></td>
+    </tr>
+    <tr>
+        <td>Location</td>
+        <td th:text="${job.location}"></td>
+    </tr>
+    <tr>
+        <td>Postion Type</td>
+        <td th:text="${job.positionType}"></td>
+    </tr>
+    <tr>
+        <td>Skill</td>
+        <td th:text="${job.coreCompetency}"></td>
+    </tr>
+</table>
+</div>
 
 </body>
 </html>
+

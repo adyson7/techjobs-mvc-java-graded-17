@@ -6,5 +6,13 @@ public class Employer extends JobField {
         super(value);
     }
 
+    @Override
+    public String getName() {
+        return getValue();
+    }
+
+    public String getValue() {
+        return super.getValue();
+    }
 }
 

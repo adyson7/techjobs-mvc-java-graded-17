@@ -6,5 +6,9 @@ public class PositionType extends JobField {
         super(value);
     }
 
+    @Override
+    public String getName() {
+        return getValue();
+    }
 }
 

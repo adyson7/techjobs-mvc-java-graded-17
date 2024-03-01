@@ -6,4 +6,9 @@ public class CoreCompetency extends JobField {
         super(value);
     }
 
+    //method to get the name of the core competency
+    public String getName() {
+        return getValue();
+    }
+
 }

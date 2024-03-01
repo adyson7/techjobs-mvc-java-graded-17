@@ -31,32 +31,41 @@ public class Job {
 
     // Custom toString method.
     @Override
-    public String toString(){
-        String output = "";
-        if (name.equals("")){
-            name = "Data not available";
-        }
-        if (employer.getValue().equals("") || employer.getValue() == null){
-            employer.setValue("Data not available");
-        }
-        if (location.getValue().equals("") || location.getValue() == null){
-            location.setValue("Data not available");
-        }
-        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
-            coreCompetency.setValue("Data not available");
-        }
-        if (positionType.getValue().equals("") || positionType.getValue() == null){
-            positionType.setValue("Data not available");
-        }
-
-        output = String.format("\nID: %d\n" +
-                "Name: %s\n" +
-                "Employer: %s\n" +
-                "Location: %s\n" +
-                "Position Type: %s\n" +
-                "Core Competency: %s\n", id, name, employer, location, positionType, coreCompetency);
+    public String toString() {
+        String output = "\nID: " + id + "\n" +
+                "Name: " + (name != null && !name.isEmpty() ? name : "Data not available") + "\n" +
+                "Employer: " + (employer != null ? employer.getValue() : "Data not available") + "\n" +
+                "Location: " + (location != null ? location.getValue() : "Data not available") + "\n" +
+                "Position Type: " + (positionType != null ? positionType.getValue() : "Data not available") + "\n" +
+                "Core Competency: " + (coreCompetency != null ? coreCompetency.getValue() : "Data not available") + "\n";
         return output;
     }
+//    public String toString(){
+//        String output = "";
+//        if (name.equals("")){
+//            name = "Data not available";
+//        }
+//        if (employer.getValue().equals("") || employer.getValue() == null){
+//            employer.setValue("Data not available");
+//        }
+//        if (location.getValue().equals("") || location.getValue() == null){
+//            location.setValue("Data not available");
+//        }
+//        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+//            coreCompetency.setValue("Data not available");
+//        }
+//        if (positionType.getValue().equals("") || positionType.getValue() == null){
+//            positionType.setValue("Data not available");
+//        }
+//
+//        output = String.format("\nID: %d\n" +
+//                "Name: %s\n" +
+//                "Employer: %s\n" +
+//                "Location: %s\n" +
+//                "Position Type: %s\n" +
+//                "Core Competency: %s\n", id, name, employer, location, positionType, coreCompetency);
+//        return output;
+//    }
 
     // Custom equals and hashCode methods. Two Job objects are "equal" when their id fields match.
     @Override
